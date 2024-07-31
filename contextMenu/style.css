@@ -1,0 +1,124 @@
+@import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+:root{
+    --bg-primary: #d0d6df;
+    --bg-primary-offfset: #f1f3f7;
+    --bg-secondary: #fff;
+    --text-primary: #3a3c42;
+    --text-primary-offset: #898c94;
+    --orange: #dc9960;
+    --green: #1eb8b1;
+    --purple: #657cc4;
+    --red: #d92027;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    font-family: "Inter",sans-serif;
+    background-color: var(--bg-primary);
+}
+
+ul{
+    list-style: none;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px #40404026;
+}
+
+.menu-list{
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.menu-list+.menu-list{
+    border-top: 1px solid #ddd;
+}
+
+.menu-item{
+    position: relative;
+    background-color: var(--bg-secondary);
+    font: "Inherit";
+    padding: 8px 8px;
+    display: flex;
+    gap: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.fa-solid,
+.fa-regular{
+    width: 20px;
+    color: var(--text-primary-offset);
+}
+
+.fa-chevron-right,
+.fa-check{
+    margin-left: auto;   
+}
+
+
+.menu-sub-list{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    left: 100%;
+    right: 0;
+    top: 0;
+    background-color: var(--bg-secondary);
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px #40404026;
+
+    & .menu-item:nth-child(1)>i{
+        color: var(--orange);
+    }
+
+    & .menu-item:nth-child(2)>i{
+        color: var(--green);
+    }
+
+    & .menu-item:nth-child(3)>i:last-child{
+        color: var(--purple);
+    }
+
+    display: none;
+}
+
+.menu-item:hover{
+    background-color: var(--bg-primary-offfset);
+
+    &>.fa-solid,
+    .fa-regular{
+        color: var(--text-primary);
+    }
+
+    &>.menu-sub-list{
+        display: flex;
+    }
+
+}
+
+.menu-item.delete:hover{
+    color: var(--red);
+
+    & .fa-solid{
+        color: inherit;
+    }
+}
+
+.menu-sub-list:hover{
+    display: flex;
+}

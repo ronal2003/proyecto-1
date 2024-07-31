@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #e0e0e0;
+}
+.header-row th {
+    background-color: #c0c0c0;
+}
+.checkbox-cell {
+    background-color: #f0f0ff;
+}
+.day-number {
+    font-weight: bold;
+}
+.pt {
+    margin-top: 10px;
+}

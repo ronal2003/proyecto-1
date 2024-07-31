@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Julio</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #e0e0e0;
+        }
+        .header-row th {
+            background-color: #c0c0c0;
+        }
+        .checkbox-cell {
+            background-color: #f0f0ff;
+        }
+        .day-number {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr class="header-row">
+                <th><input type="checkbox" id="select-all-month" onchange="toggleAllMonth(this)"> Todo</th>
+                <th><input type="checkbox" id="select-monday" onchange="toggleWeekday('monday', this)"> L</th>
+                <th><input type="checkbox" id="select-tuesday" onchange="toggleWeekday('tuesday', this)"> M</th>
+                <th><input type="checkbox" id="select-wednesday" onchange="toggleWeekday('wednesday', this)"> X</th>
+                <th><input type="checkbox" id="select-thursday" onchange="toggleWeekday('thursday', this)"> J</th>
+                <th><input type="checkbox" id="select-friday" onchange="toggleWeekday('friday', this)"> V</th>
+                <th><input type="checkbox" id="select-saturday" onchange="toggleWeekday('saturday', this)"> S</th>
+                <th><input type="checkbox" id="select-sunday" onchange="toggleWeekday('sunday', this)"> D</th>
+            </tr>
+        </thead>
+        <tbody id="calendar-body">
+            <!-- Aquí se generarán los días del mes -->
+        </tbody>
+    </table>
+
+    <script>
+        const daysInMonth = 31; // Días en julio
+        const weekdays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+        function generateCalendar() {
+            const tbody = document.getElementById('calendar-body');
+            tbody.innerHTML = '';
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                const tr = document.createElement('tr');
+                const date = new Date(2024, 6, i); // Mes de julio (6) en el año 2024
+                tr.innerHTML = `
+                    <td class="checkbox-cell"><input type="checkbox" class="select-day" data-day="${i}" onchange="toggleDay(this)"></td>
+                    ${weekdays.map((day, index) => {
+                        if (date.getDay() === index) { // Sunday is 0, Monday is 1, etc.
+                            return `
+                                <td class="checkbox-cell">
+                                    <div class="day-number">${i}</div>
+                                    <input type="checkbox" class="select-weekday ${day}" data-day="${i}" onchange="checkWeekday('${day}')">
+                                    <div>Ppto día: <input type="text" value="0.00"></div>
+                                </td>`;
+                        } else {
+                            return '<td></td>';
+                        }
+                    }).join('')}
+                `;
+                tbody.appendChild(tr);
+            }
+        }
+
+        function toggleAllMonth(checkbox) {
+            const isChecked = checkbox.checked;
+            document.querySelectorAll('.select-day, .select-weekday').forEach(cb => {
+                cb.checked = isChecked;
+            });
+            weekdays.forEach(day => {
+                document.getElementById(`select-${day}`).checked = isChecked;
+            });
+        }
+
+        function toggleWeekday(weekday, checkbox) {
+            const isChecked = checkbox.checked;
+            document.querySelectorAll(`.select-weekday.${weekday}`).forEach(cb => {
+                cb.checked = isChecked;
+                const dayCheckbox = document.querySelector(`.select-day[data-day="${cb.dataset.day}"]`);
+                if (dayCheckbox) {
+                    dayCheckbox.checked = isChecked;
+                }
+            });
+            checkAllMonth();
+        }
+
+        function toggleDay(dayCheckbox) {
+            const day = dayCheckbox.dataset.day;
+            const isChecked = dayCheckbox.checked;
+
+            if (!isChecked) {
+                document.getElementById('select-all-month').checked = false;
+            }
+
+            document.querySelectorAll(`.select-weekday[data-day="${day}"]`).forEach(cb => {
+                cb.checked = isChecked;
+            });
+
+            weekdays.forEach(weekday => {
+                const allChecked = Array.from(document.querySelectorAll(`.select-weekday.${weekday}`)).every(cb => cb.checked);
+                document.getElementById(`select-${weekday}`).checked = allChecked;
+            });
+
+            checkAllMonth();
+        }
+
+        function checkWeekday(weekday) {
+            const allChecked = Array.from(document.querySelectorAll(`.select-weekday.${weekday}`)).every(cb => cb.checked);
+            document.getElementById(`select-${weekday}`).checked = allChecked;
+        }
+
+        function checkAllMonth() {
+            const allChecked = Array.from(document.querySelectorAll('.select-day')).every(cb => cb.checked);
+            document.getElementById('select-all-month').checked = allChecked;
+        }
+
+        generateCalendar();
+    </script>
+</body>
+</html>

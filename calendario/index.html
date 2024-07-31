@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calendario de Julio</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr class="header-row">
+                <!-- <th></th> -->
+                <th><input type="checkbox" id="select-all-month" onchange="toggleAllMonth(this)"><input type="checkbox" id="select-sunday" onchange="toggleWeekday('sunday', this)"> L</th>
+                <th><input type="checkbox" id="select-monday" onchange="toggleWeekday('monday', this)"> M</th>
+                <th><input type="checkbox" id="select-tuesday" onchange="toggleWeekday('tuesday', this)"> MM</th>
+                <th><input type="checkbox" id="select-wednesday" onchange="toggleWeekday('wednesday', this)"> J</th>
+                <th><input type="checkbox" id="select-thursday" onchange="toggleWeekday('thursday', this)"> V</th>
+                <th><input type="checkbox" id="select-friday" onchange="toggleWeekday('friday', this)"> S</th>
+                <th><input type="checkbox" id="select-saturday" onchange="toggleWeekday('saturday', this)"> D</th>
+            </tr>
+        </thead>
+        <tbody id="calendar-body">
+            <!-- Aquí se generarán los días del mes -->
+        </tbody>
+    </table>
+    <script src="app.js"></script>
+</body>
+</html>

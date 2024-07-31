@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h1>Tixia.</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Order List</a></li>
+                    <li><a href="#">Customer List</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Apps</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <header class="header">
+                <h2>Analytics</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search here">
+                </div>
+                <div class="profile">
+                    <button>Schedule Event</button>
+                    <img src="profile-pic.jpg" alt="Profile Picture">
+                </div>
+            </header>
+            <section class="analytics">
+                <div class="trending">
+                    <h3>Trending Items</h3>
+                    <ul>
+                        <li>Beautiful Fireworks Show <span class="sales">454 sales</span></li>
+                        <li>Jakarta Indie Music Festival <span class="sales">485 sales</span></li>
+                        <li>Live Choir in Sydney <span class="sales">250 sales</span></li>
+                        <li>Artist Performing Festival <span class="sales">350 sales</span></li>
+                        <li>Football Charity Event <span class="sales">752 sales</span></li>
+                    </ul>
+                </div>
+                <div class="charts">
+                    <canvas id="revenueChart"></canvas>
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </section>
+            <section class="summary">
+                <div class="card income">
+                    <h3>Income</h3>
+                    <p>$126,000</p>
+                </div>
+                <div class="card customers">
+                    <h3>Customers</h3>
+                    <p>109,511</p>
+                </div>
+                <div class="card last-year">
+                    <h3>Last Year</h3>
+                    <p>59% ↑</p>
+                </div>
+            </section>
+            <section class="detailed-charts">
+                <canvas id="salesComparisonChart"></canvas>
+                <canvas id="pieChart"></canvas>
+            </section>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

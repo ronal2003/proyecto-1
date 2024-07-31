@@ -1,0 +1,120 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h1 {
+    margin: 0;
+    padding: 20px 0;
+    font-size: 24px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    flex-grow: 1;
+    background-color: #f4f4f9;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile button {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.analytics {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trending, .charts {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.trending h3, .trending ul {
+    margin: 0;
+    padding: 0;
+}
+
+.trending ul li {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin: 0;
+}
+
+.detailed-charts {
+    margin-top: 20px;
+}
+
+canvas {
+    margin: 20px 0;
+}

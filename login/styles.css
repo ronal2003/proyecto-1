@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header .top-bar {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+header .top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .top-bar .contact-info span,
+header .top-bar .user-actions a {
+    margin-right: 20px;
+}
+
+header .main-header {
+    background-color: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+header .main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .main-header .logo h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+header .main-header .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+header .main-header .search-bar input,
+header .main-header .search-bar select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    margin-right: -5px;
+}
+
+header .main-header .search-bar button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+header .main-header .cart {
+    display: flex;
+    align-items: center;
+}
+
+header .main-header .cart i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+header .navbar {
+    background-color: #f4f4f4;
+    padding: 10px 0;
+}
+
+header .navbar .container {
+    display: flex;
+    justify-content: center;
+}
+
+header .navbar ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header .navbar ul li {
+    margin-right: 20px;
+}
+
+header .navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.banner {
+    background-image: url('banner.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.banner h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 18px;
+}
+
+.products {
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.products .product {
+    backgrou
