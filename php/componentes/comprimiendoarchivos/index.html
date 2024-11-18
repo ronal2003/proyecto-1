@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subir archivos y encapsular en ZIP</title>
+</head>
+<body>
+    <h2>Subir archivos y encapsular en ZIP</h2>
+    <form action="encapsular.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="archivo[]" multiple>
+        <button type="submit" name="submit">Subir y encapsular</button>
+    </form>
+</body>
+</html>
